@@ -15,10 +15,12 @@
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "develop:install": "bundle config set --local without 'production' && bundle install",
     "develop:windows": "concurrently \"yarn build:windows:glob\" \"yarn build:css --watch\" \"rails s\"",
-    "build:windows:glob": "node esbuild.windows.js"
+    "build:windows:glob": "node esbuild.windows.js",
+    "creds:edit": "cross-env EDITOR=\"code --wait\" rails credentials:edit"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "glob": "^7.2.0"
   }
 }
