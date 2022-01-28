@@ -10,7 +10,15 @@
     "sass": "^1.49.0"
   },
   "scripts": {
+    "build:windows": "esbuild app/javascript/test.js app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
-    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "develop:install": "bundle config set --local without 'production' && bundle install",
+    "develop:windows": "concurrently \"yarn build:windows:glob\" \"yarn build:css --watch\" \"rails s\"",
+    "build:windows:glob": "node esbuild.windows.js"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "glob": "^7.2.0"
   }
 }
