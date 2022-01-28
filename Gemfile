@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem "devise", "~> 4.8", ">= 4.8.1"
 gem "devise-bootstrap-views", "~> 1.1"
 gem "iex-ruby-client", "~> 1.6"
+gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

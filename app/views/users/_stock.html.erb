@@ -1,0 +1,15 @@
+<% if @stock %>
+  <turbo-frame id="results">
+    <div class="alert alert-info results-block" role="alert">
+      <figure class="text-center results-block">
+        <strong>Symbol: </strong><%= @stock.ticker%>
+      </figure>
+      <figure class="text-center results-block">
+        <strong>Name: </strong><%= @stock.name%>
+      </figure>
+      <figure class="text-center results-block">
+        <strong>Price: </strong>$<%= @stock.last_price%>
+      </figure>
+    </div>
+  </turbo-frame>
+<% end %>
