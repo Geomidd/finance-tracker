@@ -2,6 +2,6 @@
   <th scope="row"><%= friend.email %></td>
   <td><%= friend.full_name %></th>
   <td>
-    <%= button_to "Stop following", friends_path(friend), method: :delete, form: {data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-sm btn-warning" %>
+    <%= button_to "Stop following", friendship_path(friend), method: :delete, form: {data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-sm btn-warning" %>
   </td>
 </tr>

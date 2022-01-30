@@ -1,5 +1,4 @@
 class StocksController < ApplicationController
-  respond_to :js
 
   def search
     if params[:stock].present?
@@ -15,4 +14,5 @@ class StocksController < ApplicationController
       render partial: "users/stock_error", locals: {error: error}
     end
   end
+
 end

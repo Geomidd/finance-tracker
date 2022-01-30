@@ -1,4 +1,22 @@
 <h1 class="text-center">My Friends</h1>
+<div class="search-area">
+  <h3>Search Friends</h3>
+  <%= form_with url: search_friend_path, method: :get, local: false, data: {"turbo-frame": "results"} do |form| %>
+    <div class="form-group row gx-0">
+      <div class="col-sm-9">
+        <%= text_field_tag :friend, params[:friend], placeholder: "Name or email", autofocus: true, class: "form-control form-control-lg" %>
+      </div>
+      <div class="col-sm-3">
+        <%= button_tag type: :submit, class: "btn btn-success" do %>
+          <%= fa_icon "search 2x" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row justify-content-center">
+    <turbo-frame id="results"></turbo-frame>
+  </div>
+</div>
 <div class="row mt-5">
   <div class="col-9">
     <%= render "friends/list", friends: @friends %>
