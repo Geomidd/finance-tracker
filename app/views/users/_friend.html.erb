@@ -13,7 +13,7 @@
           </div>
           <div class="col-4 align-middle">
             <figure class="text-center">
-              <%= link_to "View profile", '#', class: "btn btn-sm btn-primary" %>
+              <%= link_to "View profile", user_path(friend), class: "btn btn-sm btn-primary", data: { turbo_frame: "_top" } %>
             </figure>
             <figure class="text-center">
               <% if current_user.not_friends_with?(friend.id) %>

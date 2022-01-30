@@ -1,0 +1,25 @@
+<h2>User Details</h2>
+<div class="alert alert-info col-9 row" role="alert">
+  <div class="col-8">
+    <figure class="text-center">
+      <strong>Name: </strong><%= @user.full_name %>
+    </figure>
+    <figure class="text-center">
+      <strong>Email: </strong><%= @user.email %>
+    </figure>
+  </div>
+  <div class="col-4 align-middle">
+    <figure class="text-center">
+      <% if current_user.not_friends_with?(@user.id) %>
+        <%= button_to "Follow friend?", friendships_path(friend: @user), method: :post, form: {"data-turbo": false}, class: "btn btn-sm btn-success" %>
+      <% else %>
+        <div class="badge bg-secondary">Already following</div>
+      <% end %>
+    </figure>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-9">
+    <%= render "stocks/list", tracked_stocks: @tracked_stocks %>
+  </div>
+</div>

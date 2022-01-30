@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def portfolio
+    @user = current_user
     @tracked_stocks = current_user.stocks
   end
 
@@ -23,5 +24,10 @@ class UsersController < ApplicationController
       error = "Please enter a name or email to search"
       render partial: "users/friend_error", locals: {error: error}
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @tracked_stocks = @user.stocks
   end
 end
