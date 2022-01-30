@@ -5,9 +5,7 @@ class UsersController < ApplicationController
     @tracked_stocks = current_user.stocks
   end
 
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
+  def friends
+    @friends = current_user.friends
   end
 end
